@@ -11,7 +11,7 @@ public class RequestHandlerFactory {
     public static Handler<Request> rootHandler(String pattern){
         char c = pattern.charAt(0);
         if (c == '.') {
-            return new DotHandler();
+            return new RootDotHandler();
         } else if (c == '*') {
             if (pattern.length() > 1) {
                 c = pattern.charAt(1);
@@ -20,7 +20,7 @@ public class RequestHandlerFactory {
             }
             return new StarHandler(c);
         } else {
-            return new FirstAlphabetHandler(c);
+            return new RootAlphabetHandler(c);
         }
     }
 

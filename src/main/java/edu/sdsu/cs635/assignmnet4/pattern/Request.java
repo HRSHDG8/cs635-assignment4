@@ -11,6 +11,7 @@ public class Request {
 
     public Request(String baseString) {
         this.baseString = baseString;
+        this.firstMatchFoundAt = -1;
     }
 
     public void incrementIndex() {

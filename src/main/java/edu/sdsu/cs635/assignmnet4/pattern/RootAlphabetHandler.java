@@ -3,9 +3,9 @@ package edu.sdsu.cs635.assignmnet4.pattern;
 /**
  * Handles the first alphabet in pattern chain
  */
-public class FirstAlphabetHandler extends AbstractRequestHandler {
+public class RootAlphabetHandler extends AbstractRequestHandler {
 
-    protected FirstAlphabetHandler(char a) {
+    protected RootAlphabetHandler(char a) {
         super(a);
     }
 
