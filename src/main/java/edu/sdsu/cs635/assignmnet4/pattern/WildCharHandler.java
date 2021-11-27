@@ -1,7 +1,5 @@
 package edu.sdsu.cs635.assignmnet4.pattern;
 
-import edu.sdsu.cs635.assignmnet4.handler.Handler;
-
 public class WildCharHandler extends AbstractRequestHandler {
 
     public WildCharHandler(char a) {
@@ -18,7 +16,7 @@ public class WildCharHandler extends AbstractRequestHandler {
                 if (base.charAt(i) != charMatch) {
                     request.incrementIndex();
                 } else {
-                    request.setCurrentChar(i);
+                    request.setCurrentCharIndex(i);
                     if (next.handle(request)) {
                         request.setFirst(i);
                         return true;

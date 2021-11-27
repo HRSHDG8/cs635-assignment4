@@ -12,11 +12,6 @@ public abstract class AbstractRequestHandler implements Handler<Request> {
     }
 
     @Override
-    public Handler<Request> next(){
-        return next;
-    }
-
-    @Override
     public void setNext(Handler<Request> next) {
         this.next = next;
     }

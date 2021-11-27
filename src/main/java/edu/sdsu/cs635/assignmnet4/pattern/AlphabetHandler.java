@@ -8,7 +8,7 @@ public class AlphabetHandler extends AbstractRequestHandler {
 
     @Override
     public boolean handle(Request request) {
-        if (request.hasMore() && request.getCurrentChar() == charMatch) {
+        if (request.hasMore() && request.getCurrentCharValue() == charMatch) {
             request.incrementIndex();
             return next.handle(request);
         }else{

@@ -13,7 +13,7 @@ public class FirstAlphabetHandler extends AbstractRequestHandler {
             if (base.charAt(i) != charMatch) {
                 request.incrementIndex();
             } else {
-                request.setCurrentChar(i);
+                request.setCurrentCharIndex(i);
                 if (next.handle(request)) {
                     request.setFirst(i);
                     return true;
