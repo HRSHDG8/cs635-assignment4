@@ -22,7 +22,7 @@ public class Request {
         return baseString;
     }
 
-    public boolean hasMore(){
+    public boolean hasMore() {
         return currentChar < baseString.length();
     }
 
@@ -36,7 +36,7 @@ public class Request {
 
 
     public void setFirst(int first) {
-        this.first=first;
+        this.first = first;
     }
 
     @Override
@@ -55,6 +55,10 @@ public class Request {
     }
 
     public void setCurrentChar(int currentChar) {
-        this.currentChar =currentChar;
+        this.currentChar = currentChar;
+    }
+
+    public int getCurrentCharIndex() {
+        return currentChar;
     }
 }
