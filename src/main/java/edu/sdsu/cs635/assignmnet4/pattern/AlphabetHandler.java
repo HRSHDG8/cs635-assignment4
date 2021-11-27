@@ -1,8 +1,11 @@
 package edu.sdsu.cs635.assignmnet4.pattern;
 
+/**
+ * Handler to match alphabetic characters
+ */
 public class AlphabetHandler extends AbstractRequestHandler {
 
-    public AlphabetHandler(char charMatch) {
+    protected AlphabetHandler(char charMatch) {
         super(charMatch);
     }
 

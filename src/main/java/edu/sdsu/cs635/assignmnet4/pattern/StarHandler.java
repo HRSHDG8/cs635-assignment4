@@ -1,9 +1,11 @@
 package edu.sdsu.cs635.assignmnet4.pattern;
+/**
+ * Handler for "*" wildcard
+ */
+public class StarHandler extends AbstractRequestHandler {
 
-public class WildCharHandler extends AbstractRequestHandler {
-
-    public WildCharHandler(char a) {
-        super(a);
+    public StarHandler(char charMatch) {
+        super(charMatch);
     }
 
     @Override
@@ -18,7 +20,7 @@ public class WildCharHandler extends AbstractRequestHandler {
                 } else {
                     request.setCurrentCharIndex(i);
                     if (next.handle(request)) {
-                        request.setFirst(i);
+                        request.setFirstMatchFoundAt(i);
                         return true;
                     }
                 }

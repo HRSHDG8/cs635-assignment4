@@ -1,8 +1,11 @@
 package edu.sdsu.cs635.assignmnet4.pattern;
 
+/**
+ * Handles the first alphabet in pattern chain
+ */
 public class FirstAlphabetHandler extends AbstractRequestHandler {
 
-    public FirstAlphabetHandler(char a) {
+    protected FirstAlphabetHandler(char a) {
         super(a);
     }
 
@@ -15,12 +18,12 @@ public class FirstAlphabetHandler extends AbstractRequestHandler {
             } else {
                 request.setCurrentCharIndex(i);
                 if (next.handle(request)) {
-                    request.setFirst(i);
+                    request.setFirstMatchFoundAt(i);
                     return true;
                 }
             }
         }
-        request.setFirst(-1);
+        request.setFirstMatchFoundAt(-1);
         return false;
     }
 }

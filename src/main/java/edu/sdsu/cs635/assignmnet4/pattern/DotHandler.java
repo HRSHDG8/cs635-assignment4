@@ -1,8 +1,11 @@
 package edu.sdsu.cs635.assignmnet4.pattern;
 
+/**
+ * Handler for "." wildcard
+ */
 public class DotHandler extends AbstractRequestHandler {
 
-    public DotHandler() {
+    protected DotHandler() {
         super('.');
     }
 

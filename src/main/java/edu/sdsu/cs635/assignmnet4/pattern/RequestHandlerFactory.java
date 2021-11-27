@@ -2,6 +2,11 @@ package edu.sdsu.cs635.assignmnet4.pattern;
 
 import edu.sdsu.cs635.assignmnet4.handler.Handler;
 
+/**
+ * Factory class to create and return Handlers for specific use case.
+ * rootHandler for the first character
+ * requestHandler for the remaining characters
+ */
 public class RequestHandlerFactory {
     public static Handler<Request> rootHandler(String pattern){
         char c = pattern.charAt(0);
@@ -13,7 +18,7 @@ public class RequestHandlerFactory {
             } else {
                 c = ' ';
             }
-            return new WildCharHandler(c);
+            return new StarHandler(c);
         } else {
             return new FirstAlphabetHandler(c);
         }
@@ -29,7 +34,7 @@ public class RequestHandlerFactory {
             } else {
                 c = ' ';
             }
-            return new WildCharHandler(c);
+            return new StarHandler(c);
         } else {
             return new AlphabetHandler(c);
         }
