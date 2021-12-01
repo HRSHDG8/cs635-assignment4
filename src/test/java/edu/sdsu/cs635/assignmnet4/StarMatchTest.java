@@ -1,6 +1,6 @@
 package edu.sdsu.cs635.assignmnet4;
 
-import org.junit.jupiter.api.BeforeEach;
+import edu.sdsu.cs635.assignmnet4.pattern.Match;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

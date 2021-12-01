@@ -10,7 +10,7 @@ public class NullHandler implements Handler<Request> {
 
     @Override
     public void setNext(Handler<Request> next) {
-
+        //do nothing
     }
 
     @Override

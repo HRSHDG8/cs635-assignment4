@@ -13,7 +13,7 @@ public abstract class AbstractRequestHandler implements Handler<Request> {
 
     /**
      * All Constructors for Abstract and Concrete Handlers are protected.
-     * They must only be instantiated and accessed from the {@link RequestHandlerFactory}
+     * They must only be instantiated and accessed from the factory method in {@link Match} class
      *
      * @param charMatch is the current char in the pattern to be matched
      */
