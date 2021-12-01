@@ -33,7 +33,9 @@ public class Match {
         handler.handle(request);
         return request.first();
     }
-
+    /**
+     * Factory method to create and return rootHandler for the first character
+     */
     private Handler<Request> rootHandler(String pattern) {
         char c = pattern.charAt(0);
         if (c == '.') {
@@ -49,7 +51,9 @@ public class Match {
             return new RootAlphabetHandler(c);
         }
     }
-
+    /**
+     * Factory method to create and return requestHandler for the remaining characters
+     */
     private Handler<Request> requestHandler(String pattern, int index) {
         char c = pattern.charAt(index);
         if (c == '.') {
