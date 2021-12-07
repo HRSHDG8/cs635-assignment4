@@ -12,7 +12,6 @@ public class DotHandler extends AbstractRequestHandler {
     @Override
     public boolean handle(Request request) {
         request.incrementIndex();
-        request.incrementIndex();
         return next.handle(request);
     }
 }

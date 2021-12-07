@@ -18,7 +18,7 @@ public class StarHandler extends AbstractRequestHandler {
                 if (base.charAt(i) != charMatch) {
                     request.incrementIndex();
                 } else {
-                    request.setCurrentCharIndex(i);
+                    request.setCurrentCharIndex(i-1);
                     if (next.handle(request)) {
                         request.setFirstMatchFoundAt(i);
                         return true;

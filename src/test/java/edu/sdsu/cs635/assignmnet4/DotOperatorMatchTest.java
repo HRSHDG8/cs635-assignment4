@@ -24,4 +24,12 @@ class DotOperatorMatchTest {
         assertEquals(-1, matcher.findFirstIn("zcbds"));
     }
 
+    @Test
+    void dotCharacterAtEnd() {
+        matcher = new Match("abc.");
+        assertEquals(1, matcher.findFirstIn("zabcxabca"));
+        assertEquals(0, matcher.findFirstIn("abczabc"));
+        assertEquals(-1, matcher.findFirstIn("zcbds"));
+    }
+
 }
