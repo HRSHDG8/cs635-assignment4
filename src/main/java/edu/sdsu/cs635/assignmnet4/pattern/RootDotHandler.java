@@ -11,9 +11,7 @@ public class RootDotHandler extends AbstractRequestHandler {
 
     @Override
     public boolean handle(Request request) {
-        request.incrementIndex();
-        String base = request.getBaseString();
-        for (int i = 0; i < base.length(); i++) {
+        for (int i = 0; i < request.length(); i++) {
             if (next.handle(request)) {
                 request.setFirstMatchFoundAt(i);
                 return true;

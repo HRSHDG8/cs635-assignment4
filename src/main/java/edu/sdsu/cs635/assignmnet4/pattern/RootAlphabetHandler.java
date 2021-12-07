@@ -11,9 +11,8 @@ public class RootAlphabetHandler extends AbstractRequestHandler {
 
     @Override
     public boolean handle(Request request) {
-        String base = request.getBaseString();
-        for (int i = 0; i < base.length(); i++) {
-            if (base.charAt(i) != charMatch) {
+        for (int i = 0; i < request.length(); i++) {
+            if (!request.isCharAt(charMatch, i)) {
                 request.incrementIndex();
             } else {
                 request.setCurrentCharIndex(i);

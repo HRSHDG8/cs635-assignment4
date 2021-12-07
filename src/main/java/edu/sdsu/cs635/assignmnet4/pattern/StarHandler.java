@@ -1,4 +1,5 @@
 package edu.sdsu.cs635.assignmnet4.pattern;
+
 /**
  * Handler for "*" wildcard
  */
@@ -10,15 +11,14 @@ public class StarHandler extends AbstractRequestHandler {
 
     @Override
     public boolean handle(Request request) {
-        if(charMatch == ' '){
+        if (charMatch == ' ') {
             return true;
-        }else{
-            String base = request.getBaseString();
-            for (int i = request.getCurrentCharIndex(); i < base.length(); i++) {
-                if (base.charAt(i) != charMatch) {
+        } else {
+            for (int i = request.getCurrentCharIndex(); i < request  .length(); i++) {
+                if (!request.isCharAt(charMatch, i)) {
                     request.incrementIndex();
                 } else {
-                    request.setCurrentCharIndex(i-1);
+                    request.setCurrentCharIndex(i - 1);
                     if (next.handle(request)) {
                         request.setFirstMatchFoundAt(i);
                         return true;

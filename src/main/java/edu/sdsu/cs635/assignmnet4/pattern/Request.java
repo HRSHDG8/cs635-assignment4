@@ -26,16 +26,20 @@ public class Request {
         return currentCharIndex;
     }
 
-    public String getBaseString() {
-        return baseString;
+    public boolean isCharAt(char charMatch, int index) {
+        return baseString.charAt(index) == charMatch;
     }
 
-    public boolean hasMore() {
+    public int length() {
+        return baseString.length();
+    }
+
+    private boolean hasMore() {
         return currentCharIndex < baseString.length();
     }
 
-    public char getCurrentCharValue() {
-        return baseString.charAt(currentCharIndex);
+    public boolean isCurrentMatch(char charMatch) {
+        return this.hasMore() && baseString.charAt(currentCharIndex) == charMatch;
     }
 
     public void setFirstMatchFoundAt(int firstMatchFoundAt) {
