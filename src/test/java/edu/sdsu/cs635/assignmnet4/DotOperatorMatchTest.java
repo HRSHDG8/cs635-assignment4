@@ -32,4 +32,12 @@ class DotOperatorMatchTest {
         assertEquals(-1, matcher.findFirstIn("zcbds"));
     }
 
+    @Test
+    void multipleDotCharacterInBetween() {
+        matcher = new Match("a..b.c");
+        assertEquals(1, matcher.findFirstIn("zaxxbxc"));
+        assertEquals(0, matcher.findFirstIn("abcbbccbb"));
+        assertEquals(-1, matcher.findFirstIn("cbda"));
+    }
+
 }

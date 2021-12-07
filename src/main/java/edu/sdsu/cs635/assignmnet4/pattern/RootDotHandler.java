@@ -1,7 +1,7 @@
 package edu.sdsu.cs635.assignmnet4.pattern;
 
 /**
- * Handler for "." wildcard
+ * Handler for first "." wildcard
  */
 public class RootDotHandler extends AbstractRequestHandler {
 

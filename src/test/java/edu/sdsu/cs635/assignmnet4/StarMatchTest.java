@@ -25,10 +25,16 @@ class StarMatchTest {
     }
 
     @Test
-    void starOnly() {
+    void starAtStart() {
         matcher = new Match("*a");
         assertEquals(3,matcher.findFirstIn("zyxabcayx"));
         assertEquals(0,matcher.findFirstIn("abcabbc"));
         assertEquals(3,matcher.findFirstIn("cbda"));
+    }
+
+    @Test
+    void starOnEmptyStringMustNotBeFound() {
+        matcher = new Match("*");
+        assertEquals(-1,matcher.findFirstIn(""));
     }
 }

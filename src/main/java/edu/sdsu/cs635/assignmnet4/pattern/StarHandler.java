@@ -14,15 +14,16 @@ public class StarHandler extends AbstractRequestHandler {
         if (charMatch == ' ') {
             return true;
         } else {
-            for (int i = request.getCurrentCharIndex(); i < request  .length(); i++) {
-                if (!request.isCharAt(charMatch, i)) {
-                    request.incrementIndex();
-                } else {
+            for (int i = request.getCurrentCharIndex(); i < request.length(); i++) {
+                if (request.isCharAt(charMatch, i)) {
+                    // if next character matches the ith value set current char to (i - 1) and invoke next handler
                     request.setCurrentCharIndex(i - 1);
                     if (next.handle(request)) {
                         request.setFirstMatchFoundAt(i);
                         return true;
                     }
+                } else {
+                    request.incrementIndex();
                 }
             }
         }

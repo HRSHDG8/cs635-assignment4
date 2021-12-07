@@ -10,7 +10,7 @@ public class AlphabetMatchTest {
     private Match matcher;
 
     @Test
-    void dotCharacterInBetween() {
+    void uniqueCharacterPattern() {
         matcher = new Match("abc");
         assertEquals(4, matcher.findFirstIn("zaczabc"));
         assertEquals(0, matcher.findFirstIn("abcabbc"));
@@ -18,7 +18,7 @@ public class AlphabetMatchTest {
     }
 
     @Test
-    void dotCharacterAtStart() {
+    void duplicatesAllowedCharacterPattern() {
         matcher = new Match("cac");
         assertEquals(5, matcher.findFirstIn("aaabacac"));
         assertEquals(-1, matcher.findFirstIn("abczabc"));

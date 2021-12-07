@@ -24,6 +24,9 @@ public abstract class AbstractRequestHandler implements Handler<Request> {
         this.next = new NullHandler();
     }
 
+    /**
+     * Common implementation to set next in chain handler for all concrete classes
+     */
     @Override
     public void setNext(Handler<Request> next) {
         this.next = next;
