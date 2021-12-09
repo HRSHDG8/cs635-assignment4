@@ -3,21 +3,21 @@ package edu.sdsu.cs635.assignmnet4.pattern;
 /**
  * Handler for first "." wildcard
  */
-public class RootDotHandler extends AbstractRequestHandler {
+public class RootDotHandler extends AbstractPatternMatchHandler {
 
     protected RootDotHandler() {
         super('.');
     }
 
     @Override
-    public boolean handle(Request request) {
-        for (int i = 0; i < request.length(); i++) {
-            if (next.handle(request)) {
-                request.setFirstMatchFoundAt(i);
+    public boolean handle(PatternMatchRequest patternMatchRequest) {
+        for (int i = 0; i < patternMatchRequest.length(); i++) {
+            if (next.handle(patternMatchRequest)) {
+                patternMatchRequest.setFirstMatchFoundAt(i);
                 return true;
             }
         }
-        request.setFirstMatchFoundAt(-1);
+        patternMatchRequest.setFirstMatchFoundAt(-1);
         return false;
     }
 }

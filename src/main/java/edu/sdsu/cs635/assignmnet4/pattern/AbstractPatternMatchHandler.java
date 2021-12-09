@@ -7,8 +7,8 @@ import edu.sdsu.cs635.assignmnet4.handler.Handler;
  * specifies common data like next chain and character to be matched
  * specifies default method for setting the next handler.
  */
-public abstract class AbstractRequestHandler implements Handler<Request> {
-    protected Handler<Request> next;
+public abstract class AbstractPatternMatchHandler implements Handler<PatternMatchRequest> {
+    protected Handler<PatternMatchRequest> next;
     protected char charMatch;
 
     /**
@@ -17,7 +17,7 @@ public abstract class AbstractRequestHandler implements Handler<Request> {
      *
      * @param charMatch is the current char in the pattern to be matched
      */
-    protected AbstractRequestHandler(char charMatch) {
+    protected AbstractPatternMatchHandler(char charMatch) {
         this.charMatch = charMatch;
         //initialize next with a default Null Handler that does nothing
         //so that you don't have to explicitly check null before invoking handle on the next handler instance
@@ -28,7 +28,7 @@ public abstract class AbstractRequestHandler implements Handler<Request> {
      * Common implementation to set next in chain handler for all concrete classes
      */
     @Override
-    public void setNext(Handler<Request> next) {
+    public void setNext(Handler<PatternMatchRequest> next) {
         this.next = next;
     }
 }

@@ -3,26 +3,26 @@ package edu.sdsu.cs635.assignmnet4.pattern;
 /**
  * Handles the first alphabet in pattern chain
  */
-public class RootAlphabetHandler extends AbstractRequestHandler {
+public class RootAlphabetHandler extends AbstractPatternMatchHandler {
 
     protected RootAlphabetHandler(char a) {
         super(a);
     }
 
     @Override
-    public boolean handle(Request request) {
-        for (int i = 0; i < request.length(); i++) {
-            if (request.isCharAt(charMatch, i)) {
-                request.setCurrentCharIndex(i);
-                if (next.handle(request)) {
-                    request.setFirstMatchFoundAt(i);
+    public boolean handle(PatternMatchRequest patternMatchRequest) {
+        for (int i = 0; i < patternMatchRequest.length(); i++) {
+            if (patternMatchRequest.isCharAt(charMatch, i)) {
+                patternMatchRequest.setCurrentCharIndex(i);
+                if (next.handle(patternMatchRequest)) {
+                    patternMatchRequest.setFirstMatchFoundAt(i);
                     return true;
                 }
             } else {
-                request.incrementIndex();
+                patternMatchRequest.incrementIndex();
             }
         }
-        request.setFirstMatchFoundAt(-1);
+        patternMatchRequest.setFirstMatchFoundAt(-1);
         return false;
     }
 }

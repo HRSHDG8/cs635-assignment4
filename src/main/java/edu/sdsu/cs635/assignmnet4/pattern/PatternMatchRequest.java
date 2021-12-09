@@ -4,12 +4,12 @@ package edu.sdsu.cs635.assignmnet4.pattern;
  * Base object being operated on by different objects in the chain.
  * Maintains state of the operations performed in each chain
  */
-public class Request {
+public class PatternMatchRequest {
     private final String baseString;
     private int currentCharIndex;
     private int firstMatchFoundAt;
 
-    public Request(String baseString) {
+    public PatternMatchRequest(String baseString) {
         this.baseString = baseString;
         this.firstMatchFoundAt = -1;
     }
@@ -34,10 +34,6 @@ public class Request {
         return baseString.length();
     }
 
-    private boolean hasMore() {
-        return currentCharIndex < baseString.length();
-    }
-
     public boolean isCurrentMatch(char charMatch) {
         return this.hasMore() && baseString.charAt(currentCharIndex) == charMatch;
     }
@@ -50,4 +46,7 @@ public class Request {
         return firstMatchFoundAt;
     }
 
+    private boolean hasMore() {
+        return currentCharIndex < baseString.length();
+    }
 }

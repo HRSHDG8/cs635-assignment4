@@ -7,7 +7,7 @@ import edu.sdsu.cs635.assignmnet4.handler.Handler;
  * The constructor builds and sets the request handler chain.
  */
 public class Match {
-    private final Handler<Request> handler;
+    private final Handler<PatternMatchRequest> handler;
 
     /**
      * @param pattern a string to construct the pattern chain from.
@@ -15,10 +15,10 @@ public class Match {
     public Match(String pattern) {
         // start the chain with root handler
         this.handler = this.rootHandler(pattern);
-        Handler<Request> temp = handler;
+        Handler<PatternMatchRequest> temp = handler;
         // subsequent characters are handled with requestHandlers
         for (int i = 1; i < pattern.length(); i++) {
-            Handler<Request> nextHandler = this.requestHandler(pattern, i);
+            Handler<PatternMatchRequest> nextHandler = this.requestHandler(pattern, i);
             temp.setNext(nextHandler);
             temp = nextHandler;
         }
@@ -29,14 +29,14 @@ public class Match {
      * @return index at which the first match occurs
      */
     public int findFirstIn(String predicateString) {
-        Request request = new Request(predicateString);
-        handler.handle(request);
-        return request.first();
+        PatternMatchRequest patternMatchRequest = new PatternMatchRequest(predicateString);
+        handler.handle(patternMatchRequest);
+        return patternMatchRequest.first();
     }
     /**
      * Factory method to create and return rootHandler for the first character
      */
-    private Handler<Request> rootHandler(String pattern) {
+    private Handler<PatternMatchRequest> rootHandler(String pattern) {
         char c = pattern.charAt(0);
         if (c == '.') {
             return new RootDotHandler();
@@ -54,7 +54,7 @@ public class Match {
     /**
      * Factory method to create and return requestHandler for the remaining characters
      */
-    private Handler<Request> requestHandler(String pattern, int index) {
+    private Handler<PatternMatchRequest> requestHandler(String pattern, int index) {
         char c = pattern.charAt(index);
         if (c == '.') {
             return new DotHandler();
