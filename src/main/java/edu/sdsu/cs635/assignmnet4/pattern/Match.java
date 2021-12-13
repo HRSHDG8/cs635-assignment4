@@ -7,15 +7,16 @@ import edu.sdsu.cs635.assignmnet4.handler.Handler;
  * The constructor builds and sets the request handler chain.
  */
 public class Match {
-    private final Handler<PatternMatchRequest> handler;
+    //chain starts here
+    private final Handler<PatternMatchRequest> rootHandler;
 
     /**
      * @param pattern a string to construct the pattern chain from.
      */
     public Match(String pattern) {
         // start the chain with root handler
-        this.handler = this.rootHandler(pattern);
-        Handler<PatternMatchRequest> temp = handler;
+        this.rootHandler = this.rootHandler(pattern);
+        Handler<PatternMatchRequest> temp = rootHandler;
         // subsequent characters are handled with requestHandlers
         for (int i = 1; i < pattern.length(); i++) {
             Handler<PatternMatchRequest> nextHandler = this.requestHandler(pattern, i);
@@ -30,7 +31,7 @@ public class Match {
      */
     public int findFirstIn(String predicateString) {
         PatternMatchRequest patternMatchRequest = new PatternMatchRequest(predicateString);
-        handler.handle(patternMatchRequest);
+        rootHandler.handle(patternMatchRequest);
         return patternMatchRequest.first();
     }
     /**
