@@ -1,7 +1,7 @@
 package edu.sdsu.cs635.assignmnet4.pattern;
 
 /**
- * Handler for "*" wildcard
+ * Handler for "*" wildcard, handles both first and non-first characters
  */
 public class StarHandler extends AbstractPatternMatchHandler {
 
